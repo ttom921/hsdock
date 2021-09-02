@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  hscron:
+    image: hisharp_supervisord_crontab:python3.6
+    # restart: "no"
+    restart: always
+    hostname: ${WEB_TAG}
+    container_name: ${WEB_TAG}
+    # ports:
+    #   - "80:80"
+    volumes:
+      # ---------------- code  ----------------
+      - ~/server.viewtec/code:/app
+      - /media/vdisk:/media/vdisk
+      # ---------------- OS System ----------------
+      - ./docker_config/run-cron:/etc/cron.d/run-cron
+      - ./docker_config/supervisord-debian.conf:/etc/supervisor/conf.d/supervisord.conf
+      # ---------------- Log ----------------
+      # - /data/docker/webfmsd/hisharp_schedule.log:/tmp/hisharp_schedule.log
+      # - logfile 要在tmp下先建立 hisharp_schedule.log ---------
+      - type: bind
+        source: /tmp/hisharp_schedule.log
+        target: /tmp/hs_schedule_${WEB_TAG}.log
+
+      
+
