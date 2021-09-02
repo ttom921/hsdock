@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   hscron:
-    image: hisharp_supervisord_crontab:python3.6
+    image: hs_supervisord_crontab:python3.6
     # restart: "no"
     restart: always
     hostname: ${WEB_TAG}

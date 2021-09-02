@@ -1,4 +1,4 @@
-# sudo docker build -f Dockerfile -t hisharp_supervisord_crontab:python3.6 .
+# sudo docker build -f Dockerfile -t hs_supervisord_crontab:python3.6 .
 # refer to https://github.com/tiangolo/uwsgi-nginx-docker/tree/master/docker-images
 
 FROM python:3.6
