@@ -19,8 +19,8 @@ services:
       # - /data/docker/webfmsd/hisharp_schedule.log:/tmp/hisharp_schedule.log
       # - logfile 要在tmp下先建立 hisharp_schedule.log ---------
       - type: bind
-        source: /tmp/hisharp_schedule.log
-        target: /tmp/hs_schedule_${WEB_TAG}.log
+        source: /tmp/hs_schedule_${WEB_TAG}.log
+        target: /tmp/hisharp_schedule.log
 
       
 
