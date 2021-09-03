@@ -8,7 +8,7 @@ services:
     container_name: ${WEB_TAG}
     ports:
       - "${PORT}:80"
-      #- "443:443"
+      - "${SSLPORT}:443"
     volumes:
       # ---------------- code  ----------------
       - ~/server.viewtec/code:/app
