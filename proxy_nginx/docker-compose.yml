@@ -31,8 +31,15 @@ services:
       # -----------------html ------------------
       - /usr/local/nginx/html:/usr/local/nginx/html
       # ---------------- ssl  ----------------
-      - /etc/letsencrypt/live/nvtfms.com/fullchain.pem:/etc/nginx/fullchain.pem
-      - /etc/letsencrypt/live/nvtfms.com/privkey.pem:/etc/nginx/privkey.pem
+      - type: bind
+        source: /etc/letsencrypt/live/nvtfms.com/fullchain.pem
+        target: /etc/nginx/fullchain.pem
+      
+      - type: bind
+        source: /etc/letsencrypt/live/nvtfms.com/privkey.pem
+        target: /etc/nginx/privkey.pem
+      #- /etc/letsencrypt/live/nvtfms.com/fullchain.pem:/etc/nginx/fullchain.pem
+      #- /etc/letsencrypt/live/nvtfms.com/privkey.pem:/etc/nginx/privkey.pem
       # -----------------log -------------------
       - /tmp:/var/log/nginx
     
