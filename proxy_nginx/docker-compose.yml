@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   nginx_proxy01:
     image: ttom921/nginx:v1.20.1_with_stream
