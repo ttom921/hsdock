@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx_proxy01:
-    image: ttom921/nginx:v1.21.1_with_stream
+    image: ttom921/nginx:v1.21.1_with_stream:latest
     container_name: nginx_proxy01
     ports:
       # web
