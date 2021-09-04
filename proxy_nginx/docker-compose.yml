@@ -7,9 +7,9 @@ services:
       # web
       - "80:80"
       - "443:443"
-      - "8080:8080"
       # liveview
       - "1935:1935"
+      - "8080:8080"
       # ftp
       - "2201:2201"
       - "2202:2202"
@@ -33,16 +33,6 @@ services:
         target: /etc/nginx/nginx.conf
       # -----------------html ------------------
       - /usr/local/nginx/html:/usr/local/nginx/html
-      # ---------------- ssl  ----------------
-      - type: bind
-        source: /etc/letsencrypt/live/nvtfms.com/fullchain.pem
-        target: /etc/nginx/fullchain.pem
-      
-      - type: bind
-        source: /etc/letsencrypt/live/nvtfms.com/privkey.pem
-        target: /etc/nginx/privkey.pem
-      #- /etc/letsencrypt/live/nvtfms.com/fullchain.pem:/etc/nginx/fullchain.pem
-      #- /etc/letsencrypt/live/nvtfms.com/privkey.pem:/etc/nginx/privkey.pem
       # -----------------log -------------------
       - /tmp:/var/log/nginx
     
