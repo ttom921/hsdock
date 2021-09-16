@@ -1,6 +1,8 @@
 aiokafka==0.7.0
-coloredlogs==14.0
-Flask-HTTPAuth==3.3.0
+coloredlogs==15.0.1
+elasticsearch==7.14.1
+elasticsearch-dsl==7.4.0
+Flask-HTTPAuth==4.4.0
 Flask-SQLAlchemy==2.4.4
 Flask-uWSGI-WebSocket==0.6.1
 flask_marshmallow==0.14.0 
