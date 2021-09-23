@@ -7,7 +7,7 @@ FROM ttom921/nginx-uwsgi-gevent:3.6
 COPY resources/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install pip modules
-RUN pip install flask aiokafka coloredlogs Flask-HTTPAuth kafka-python 
+RUN pip install flask aiokafka coloredlogs Flask-HTTPAuth kafka-python \
     marshmallow marshmallow-sqlalchemy msgpack \
     numpy Pillow psutil pyDes pytz pyzmq PyYAML pynng \
 	qrcode requests SQLAlchemy virtualenv zmq redis
