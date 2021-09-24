@@ -1,7 +1,7 @@
-# sudo docker build -f Dockerfile -t hs_supervisord_crontab:python3.7 .
+# sudo docker build -f Dockerfile -t hs_supervisord_crontab:python3.9 .
 # refer to https://github.com/tiangolo/uwsgi-nginx-docker/tree/master/docker-images
 
-FROM python:3.7
+FROM python:3.9
 
 LABEL maintainer="gavin <gavin@hisharp.com.tw>"
 
