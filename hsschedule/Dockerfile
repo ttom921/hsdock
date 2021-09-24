@@ -1,7 +1,7 @@
-# sudo docker build -f Dockerfile -t hs_supervisord_crontab:python3.6 .
+# sudo docker build -f Dockerfile -t hs_supervisord_crontab:python3.7 .
 # refer to https://github.com/tiangolo/uwsgi-nginx-docker/tree/master/docker-images
 
-FROM python:3.6
+FROM python:3.7
 
 LABEL maintainer="gavin <gavin@hisharp.com.tw>"
 
@@ -24,7 +24,10 @@ RUN crontab /etc/cron.d/run-cron
 COPY resources/supervisord-debian.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install pip modules
-RUN pip install flask PyYAML pynng
+RUN pip install flask aiokafka coloredlogs Flask-HTTPAuth kafka-python \
+    marshmallow marshmallow-sqlalchemy msgpack \
+    numpy pandas Pillow psutil pyDes pytz pyzmq PyYAML pynng \
+	qrcode requests SQLAlchemy zmq redis
 COPY resources/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
