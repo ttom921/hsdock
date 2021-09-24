@@ -1,13 +1,16 @@
-# sudo docker build -f Dockerfile -t webfms:python3.6  . --no-cache
+# sudo docker build -f Dockerfile -t webfms:python3.9  . --no-cache
 
 # 使用自制的 Python 執行環境作為基本的 Docker 影像
-FROM ttom921/nginx-uwsgi-gevent:3.6
+FROM ttom921/nginx-uwsgi-gevent:3.9
 
 # Custom Supervisord config
 COPY resources/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install pip modules
-RUN pip install flask PyYAML pynng
+RUN pip install flask aiokafka coloredlogs Flask-HTTPAuth kafka-python \
+    marshmallow marshmallow-sqlalchemy msgpack \
+    numpy pandas Pillow psutil pyDes pytz pyzmq PyYAML pynng \
+	qrcode requests SQLAlchemy zmq redis
 COPY resources/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
