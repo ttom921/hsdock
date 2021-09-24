@@ -9,8 +9,8 @@ COPY resources/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # install pip modules
 RUN pip install flask aiokafka coloredlogs Flask-HTTPAuth kafka-python \
     marshmallow marshmallow-sqlalchemy msgpack \
-    numpy Pillow psutil pyDes pytz pyzmq PyYAML pynng \
-	qrcode requests SQLAlchemy virtualenv zmq redis
+    numpy pandas Pillow psutil pyDes pytz pyzmq PyYAML pynng \
+	qrcode requests SQLAlchemy zmq redis
 COPY resources/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
