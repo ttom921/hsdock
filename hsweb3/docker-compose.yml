@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   webfms2:
-    image: webfms:python3.6
+    image: webfms:python3.9
     #restart: "no"
     restart: always
     hostname: ${WEB_TAG}
