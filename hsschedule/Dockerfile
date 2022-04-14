@@ -5,9 +5,9 @@ FROM python:3.9
 
 LABEL maintainer="gavin <gavin@hisharp.com.tw>"
 
-# °õ¦æ apt ¦w¸Ë®Éª`·N¥[¤J -y --no-install-recommends¡A
-# ¨Ã¥B¦b¦w¸Ë§¹¦¨«á°õ¦æ rm -rf /var/lib/apt/lists/* && apt-get clean ©R¥O¡A
-# ¥i¥H¦³®Ä´î¤pÃè¹³ªºÅé¿n¡C
+# åŸ·è¡Œ apt å®‰è£æ™‚æ³¨æ„åŠ å…¥ -y --no-install-recommendsï¼Œ
+# ä¸¦ä¸”åœ¨å®‰è£å®Œæˆå¾ŒåŸ·è¡Œ rm -rf /var/lib/apt/lists/* && apt-get clean å‘½ä»¤ï¼Œ
+# å¯ä»¥æœ‰æ•ˆæ¸›å°é¡åƒçš„é«”ç©ã€‚
 # Install Supervisord ...
 # COPY resources/sources.list /etc/apt/
 RUN apt-get update && \
