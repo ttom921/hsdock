@@ -1,0 +1,61 @@
+version: '3.7'
+services:
+  celery:
+    image: hs_celery:python3.9
+    # restart: "no"
+    restart: always
+    hostname: ${WEB_TAG}
+    container_name: ${WEB_TAG}
+    working_dir: /app
+    volumes:
+      # ---------------- code  ----------------
+      - /home/hisharp/server06/code:/app
+      - /media/vdisk:/media/vdisk
+      # ---------------- OS System ----------------
+      - ./docker_config/run-cron:/etc/cron.d/run-cron
+      - ./docker_config/supervisord-debian.conf:/etc/supervisor/conf.d/supervisord.conf
+      # ---------------- Log ----------------
+      - type: bind
+        source: /tmp/hs_celery_${WEB_TAG}.log
+        target: /tmp/hisharp_celery.log
+      - type: bind
+        source: /tmp/hs_schedule_${WEB_TAG}.log
+        target: /tmp/hisharp_schedule.log
+#     depends_on:
+#       - redis
+#       - rabbitmq
+#     networks:
+#       - msg_middleware
+#     # command: ["bash", "celery.sh"]
+#   redis:
+#     image: redis:alpine
+#     #restart: "no"
+#     restart: always
+#     hostname: redis
+#     container_name: 'rd'
+#     ports:
+#       - "6379:6379"
+#     volumes:
+#       - /data/docker/redis/data:/data
+#       - ./docker_config/redis.conf:/usr/local/etc/redis/redis.conf
+#       #--------log----------------------------
+#       - type: bind
+#         source: /tmp/redis-server.log
+#         target: /usr/local/etc/redis/logs/redis-server.log
+#     command: redis-server /usr/local/etc/redis/redis.conf --save 60 1
+#     networks:
+#       - msg_middleware
+#   rabbitmq:
+#     image: rabbitmq:management    
+#     restart: always
+#     container_name: 'rq'
+#     ports:
+#       # - 5462:5462
+#       - 15673:15672
+#       - 5673:5672
+#     volumes:
+#       - /data/docker/rabbitmq/data:/var/lib/rabbitmq/
+#     networks:
+#       - msg_middleware
+# networks:
+#   msg_middleware:
