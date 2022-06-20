@@ -28,9 +28,10 @@ tar -zxvf ${tarfile}
 
 echo "停止docker服務"
 
+
 #sudo docker-compose -f ~/docker/uwsgi/docker-compose.yml down
-sudo docker-compose -f ~/docker/${websrv}/docker-compose.yml down
-sudo docker-compose -f ~/docker/${tasksrv}/docker-compose.yml down
+sudo docker-compose -f /home/${username}/docker/${websrv}/docker-compose.yml down
+sudo docker-compose -f /home/${username}/docker/${tasksrv}/docker-compose.yml down
 
 echo "刪除 python code"
 sudo rm -rf /home/${username}/${codepath}/*
@@ -48,8 +49,8 @@ echo "mv -f ${currdir}/pycodedata/.git/ /home/${username}/${codepath}/"
 echo "開始docker服務"
 #sudo systemctl restart "${uwsgisrv}"
 #sudo docker-compose -f ~/docker/uwsgi/docker-compose.yml up -d
-sudo docker-compose -f ~/docker/${websrv}/docker-compose.yml up -d
-sudo docker-compose -f ~/docker/${tasksrv}/docker-compose.yml up -d
+sudo docker-compose -f /home/${username}/docker/${websrv}/docker-compose.yml up -d
+sudo docker-compose -f /home/${username}/docker/${tasksrv}/docker-compose.yml up -d
 
 echo "刪除上傳資料"
 echo "刪除資料夾 ${currdir}/pycodedata"

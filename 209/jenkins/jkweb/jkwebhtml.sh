@@ -44,8 +44,8 @@ echo "解壓----${tarfile}"
 tar zxvf ${tarfile}
 
 echo "停止----web client docker --服務"
-#sudo docker-compose -f ~/docker/uwsgi/docker-compose.yml down
-sudo docker-compose -f ~/docker/${dockerpathname}/docker-compose.yml down
+#sudo docker-compose -f /home/${username}/docker/uwsgi/docker-compose.yml down
+sudo docker-compose -f /home/${username}/docker/${dockerpathname}/docker-compose.yml down
 
 echo "刪除 nginx下的html"
 delhtmldata
@@ -57,7 +57,7 @@ echo "複制  /home/${username}/jenkins/jkweb/${prjname}/* /usr/share/nginx/${ng
 
 echo "開始----web client docker --服務"
 #sudo docker-compose -f ~/docker/uwsgi/docker-compose.yml up -d
-sudo docker-compose -f ~/docker/${dockerpathname}/docker-compose.yml up -d
+sudo docker-compose -f /home/${username}/docker/${dockerpathname}/docker-compose.yml up -d
 
 echo "刪除上傳資料"
 echo "刪除資料夾 /home/${username}/jenkins/jkweb/${prjname}/"
